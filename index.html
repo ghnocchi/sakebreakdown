@@ -3,8 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-　　<!-- vue.js　-->
-    <script src="vue.js"></script>
     <link rel="manifest" href="manifest.json">
     <title>酒分解タイマー</title>
   </head>
@@ -13,6 +11,8 @@
         <p>{{ message }}</p>
         <button v-on:click="reverseMessage">Reverse Message</button>
      </div>
+    <!-- vue.js　-->
+    <script src="vue.js"></script>
     <script>
     // service workerの登録関係
     if ('serviceWorker' in navigator) {
