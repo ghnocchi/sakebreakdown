@@ -3,7 +3,9 @@ self.addEventListener('install', (e) => {
     caches.open('fox-store').then((cache) => cache.addAll([
       '/sakebreakdown/',
       '/sakebreakdown/index.html',
+      '/sakebreakdown/vue.js',
       '/sakebreakdown/index.js',
+      '/sakebreakdown/app.js',
       '/sakebreakdown/style.css',
       '/sakebreakdown/images/fox1.jpg',
       '/sakebreakdown/images/fox2.jpg',

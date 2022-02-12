@@ -4,11 +4,35 @@
     <meta charset="utf-8">
     <title>A2HS demo</title>
     <link href="style.css" rel="stylesheet">
-    <script src="index.js" defer></script>
     <link rel="manifest" href="manifest.webmanifest">
   </head>
   <body>
     <img src="images/fox1.jpg" alt="a fox picture">
-    <button class="add-button">Add to home screen</button>
+    <div id="app" style="position: absolute; top: 0;">
+      <p style="color: white;">{{ message }}</p>
+      <button v-on:click="reverseMessage">Reverse Message</button>
+
+      <div>
+        <input type="number" id="concentration" v-model="concentration" placeholder="5%">
+        <input type="number" id="volume" v-model="volume" placeholder="500ml">
+        <button v-on:click="addDrink">追加</button>
+        <button v-on:click="calc">計算</button>
+      </div>
+      <div><p>{{alcohol}}</p></div>
+      <div>
+        <p>体重(kg)</p>
+        <input type="number" v-model="weight">
+        <p>分解完了まで{{hour}}</p>
+      </div>
+      <div>
+        <div v-for="drink in drinks" :key="drink.id">
+          <p>{{ drink.concentration }}% {{ drink.volume }}ml</p>
+        </div>
+      </div>
+   </div>
+   <button class="add-button">Add to home screen</button>
+    <script src="vue.js" defer></script>
+    <script src="index.js" defer></script>
+    <script src="app.js" defer></script>
   </body>
 </html>
