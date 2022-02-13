@@ -5,32 +5,43 @@
     <title>A2HS demo</title>
     <link href="style.css" rel="stylesheet">
     <link rel="manifest" href="manifest.webmanifest">
+    <style type="text/css">
+      body {
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <img src="images/fox1.jpg" alt="a fox picture">
-    <div id="app" style="position: absolute; top: 0;">
-      <p style="color: white;">{{ message }}</p>
-      <button v-on:click="reverseMessage">Reverse Message</button>
-
+    <div id="app" style="position: absolute; top: 30px;">
       <div>
+        <div>
+          <button v-on:click="setConcentration5">チューハイ</button>
+          <button v-on:click="setConcentration16">日本酒</button>
+          <button v-on:click="setConcentration12">ワイン</button>
+          <button v-on:click="setConcentration40">ウイスキー</button>
+        </div>
+        <div>
+          <button v-on:click="setVolume200">小ジョッキ</button>
+          <button v-on:click="setVolume350">中ジョッキ</button>
+          <button v-on:click="setVolume700">大ジョッキ</button>
+          <button v-on:click="setVolume180">ロックグラス</button>
+        </div>
         <input type="number" id="concentration" v-model="concentration" placeholder="5%">
         <input type="number" id="volume" v-model="volume" placeholder="500ml">
         <button v-on:click="addDrink">追加</button>
-        <button v-on:click="calc">計算</button>
-      </div>
-      <div><p>{{alcohol}}</p></div>
-      <div>
-        <p>体重(kg)</p>
-        <input type="number" v-model="weight">
-        <p>分解完了まで{{hour}}</p>
+        <button v-on:click="clear">クリア</button>
       </div>
       <div>
-        <div v-for="drink in drinks" :key="drink.id">
-          <p>{{ drink.concentration }}% {{ drink.volume }}ml</p>
-        </div>
+        <p>分解完了まで {{ hour }} 時間</p>
       </div>
-   </div>
-   <button class="add-button">Add to home screen</button>
+      <div>
+        <p v-for="drink in drinks" :key="drink.id">
+          {{ drink.concentration }}% {{ drink.volume }}ml
+        </p>
+      </div>
+    </div>
+    <button class="add-button">Add to home screen</button>
     <script src="vue.js" defer></script>
     <script src="index.js" defer></script>
     <script src="app.js" defer></script>
