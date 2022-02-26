@@ -53,29 +53,35 @@ var app = new Vue({
     clear: function () {
       this.drinks = []
     },
-    setConcentration5: function () {
-      this.concentration = 5
+    setConcentration: function (opt_con) {
+      this.concentration = opt_con
     },
-    setConcentration12: function () {
-      this.concentration = 12
-    },
-    setConcentration16: function () {
-      this.concentration = 16
-    },
-    setConcentration40: function () {
-      this.concentration = 40
-    },
-    setVolume200: function () {
-      this.volume = 200
-    },
-    setVolume350: function () {
-      this.volume = 350
-    },
-    setVolume700: function () {
-      this.volume = 700
-    },
-    setVolume180: function () {
-      this.volume = 180
+    //  setConcentration5: function () {
+    //   this.concentration = 5
+    // },
+    // setConcentration12: function () {
+    //   this.concentration = 12
+    // },
+    // setConcentration16: function () {
+    //   this.concentration = 16
+    // },
+    // setConcentration40: function () {
+    //   this.concentration = 40
+    // },
+    // // setVolume200: function () {
+    //   this.volume = 200
+    // },
+    // setVolume350: function () {
+    //   this.volume = 350
+    // },
+    // setVolume700: function () {
+    //   this.volume = 700
+    // },
+    // setVolume180: function () {
+    //   this.volume = 180
+    // },
+    setVolume: function (opt_vol) {
+      this.volume = opt_vol
     },
   },
   computed: {

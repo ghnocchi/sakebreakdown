@@ -4,33 +4,73 @@
     <meta charset="utf-8">
     <title>A2HS demo</title>
     <link href="style.css" rel="stylesheet">
+    <!-- <link href="normalize.css" rel="stylesheet"> -->
     <link rel="manifest" href="manifest.webmanifest">
+    <meta name="viewport" content="width=device-width,initial-scale=1"> 
     <style type="text/css">
       body {
         color: white;
       }
+      /* https://www.w3schools.com/howto/howto_css_icon_buttons.asp */
+      /* Style buttons */
+      .btn {
+        background-color: DodgerBlue; /* Blue background */
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        padding: 12px 16px; /* Some padding */
+        font-size: 16px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+      }
+      /* Darker background on mouse-over */
+      .btn:hover {
+        background-color: RoyalBlue;
+      }
+      .iconbtn {
+        background-color: inherit; /* Blue background */
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        /* padding: 12px 16px; Some padding */
+        font-size: 16px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+        padding: 0;
+      }
+      .ib {/* icon button for <span />*/
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        background-size: 64px;
+      }
+      .ib-chuhi {background-image: url("icon/alc_chuhi.png");}
+      .ib-sake {background-image: url("icon/alc_sake.png");}
+      .ib-wine {background-image: url("icon/alc_wine.png");}
+      .ib-whiskey {background-image: url("icon/acl_whiskey.png");}
+      #concentration, #volume {
+        width: 3rem;
+      }
     </style>
   </head>
   <body>
-    <img src="images/fox1.jpg" alt="a fox picture">
+    <!-- <img src="images/fox1.jpg" alt="a fox picture"> -->
     <div id="app" style="position: absolute; top: 30px;">
       <div>
         <div>
-          <button v-on:click="setConcentration5">チューハイ</button>
-          <button v-on:click="setConcentration16">日本酒</button>
-          <button v-on:click="setConcentration12">ワイン</button>
-          <button v-on:click="setConcentration40">ウイスキー</button>
+          <button class="iconbtn" v-on:click="setConcentration(5)"><span class="ib ib-chuhi"></button>
+          <button class="iconbtn" v-on:click="setConcentration(12)"><span class="ib ib-wine"></span></button>
+          <button class="iconbtn" v-on:click="setConcentration(40)"><span class="ib ib-whiskey"></span></button>
+          <button class="iconbtn" v-on:click="setConcentration(16)"><span class="ib ib-sake"></span></button>
         </div>
         <div>
-          <button v-on:click="setVolume200">小ジョッキ</button>
-          <button v-on:click="setVolume350">中ジョッキ</button>
-          <button v-on:click="setVolume700">大ジョッキ</button>
-          <button v-on:click="setVolume180">ロックグラス</button>
+          <button v-on:click="setVolume(200)">小ジョッキ</button>
+          <button v-on:click="setVolume(350)">中ジョッキ</button>
+          <button v-on:click="setVolume(700)">大ジョッキ</button>
+          <button v-on:click="setVolume(180)">ロックグラス</button>
         </div>
-        <input type="number" id="concentration" v-model="concentration" placeholder="5%">
-        <input type="number" id="volume" v-model="volume" placeholder="500ml">
-        <button v-on:click="addDrink">追加</button>
-        <button v-on:click="clear">クリア</button>
+        <div>
+          <input type="number" id="concentration" v-model="concentration" placeholder="5%">%
+          <input type="number" id="volume" v-model="volume" placeholder="500ml">ml  
+          <button class="btn" v-on:click="addDrink">追加</button>
+          <button class="btn" v-on:click="clear">クリア</button>
+        </div>
       </div>
       <div>
         <p>分解完了まで {{ hour }} 時間</p>
